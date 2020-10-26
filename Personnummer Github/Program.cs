@@ -17,7 +17,7 @@ namespace Personnummer_Github
 
                 AmountCheck(input);
                 YearCheck(input);
-
+                MonthCheck(input);
                
             }
             catch
@@ -63,6 +63,21 @@ namespace Personnummer_Github
                 return true;
             else
                 return false;
+        }
+
+        //Method that checks if the month is valid
+        static bool MonthCheck(string input)
+        {
+            string month = input.Substring(4, 2);
+
+            if (Int32.Parse(month) <= 12 && Int32.Parse(month) >= 1) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
