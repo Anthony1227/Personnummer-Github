@@ -10,7 +10,7 @@ namespace Personnummer_Github
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Github");
         }
     }
 }
