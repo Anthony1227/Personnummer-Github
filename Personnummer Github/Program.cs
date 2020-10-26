@@ -10,6 +10,7 @@ namespace Personnummer_Github
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
