@@ -10,7 +10,23 @@ namespace Personnummer_Github
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Github");
+            DrawMenu();
+
+            string input = Console.ReadLine();
+
+
+            Console.ReadKey();
+        }
+
+
+        //Method for the Menu
+        static void DrawMenu()
+        {
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("*                                       *");
+            Console.WriteLine("* Enter 12 digit Social Security Number *");
+            Console.WriteLine("*                                       *");
+            Console.WriteLine("*****************************************");
         }
     }
 }
