@@ -9,29 +9,43 @@ namespace Personnummer_Github
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
             DrawMenu();
-            try
-            {
-                string input = Console.ReadLine();
 
-                AmountCheck(input);
-                YearCheck(input);
-                MonthCheck(input);
-                DayCheck(input);
-                DateExist(input);
-                BirthDayNumCheck(input);
-                IsMale(input);
-                Output(input);
+            while (true)
+            {
+
                
-            }
-            catch
-            {
-                Console.WriteLine("SSN is not correct");
-            } 
-            Console.ReadKey();
-        }
 
+                try
+                {
+                    string input = Console.ReadLine();
+
+                    AmountCheck(input);
+                    YearCheck(input);
+                    IsLeapYear(input);
+                    MonthCheck(input);
+                    DayCheck(input);
+                    DateExist(input);
+                    BirthDayNumCheck(input);
+                    IsMale(input);
+                    Output(input);
+                }
+                catch
+                {
+                    Console.WriteLine("ssn is not correct");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Do you want to enter new ssn? y/n");
+                string restart = Console.ReadLine();
+
+                if (restart == "y" || restart == "Y" || restart == "Yes" || restart == "yes")
+                    continue;
+                else
+                    break;
+            }
+        }
 
         //Method for the Menu
         static void DrawMenu()
@@ -65,6 +79,18 @@ namespace Personnummer_Github
             string year = input.Substring(0, 4);
 
             if (Int32.Parse(year) <= 2020 && Int32.Parse(year) >= 1753)
+                return true;
+            else
+                return false;
+        }
+
+        //Method that chekcs if the year is a leapyear
+
+        static bool IsLeapYear(string input)
+        {
+            string year = input.Substring(0, 4);
+
+            if (Int32.Parse(year) % 400 == 0 || Int32.Parse(year) % 100 != 0 && Int32.Parse(year) % 4 == 0)
                 return true;
             else
                 return false;
@@ -141,15 +167,15 @@ namespace Personnummer_Github
         {
             if (AmountCheck(input) && YearCheck(input) && MonthCheck(input) && DayCheck(input) && BirthDayNumCheck(input) && DateExist(input))
             {
-                Console.WriteLine("ssn is correct");
+                Console.WriteLine("SSN is correct");
                 if (IsMale(input))
                     Console.WriteLine("person is Male");
                 else
-                    Console.WriteLine("person is Woman");
+                    Console.WriteLine("person is Female");
             }
             else
             {
-                Console.WriteLine("ssn is not correct");
+                Console.WriteLine("SSN is not correct"); 
             }
         }
     }
